@@ -7,6 +7,7 @@ Because Docker container proivdes an  isolated environment for running applicati
 This Docker image is based on [jpetazzo/dind](https://registry.hub.docker.com/u/jpetazzo/dind/) instead of the offical [Jenkins](https://registry.hub.docker.com/u/library/jenkins/). Supervisord is used to make sure everything has proper permission and lanuch in the right order.
 
 Run it with mounted directory from host:
+
 ```
 docker run --name jenkins-dind --privileged -d -p 8080:8080 -v /your/path:/var/lib/jenkins killercentury/jenkins-dind
 ```
