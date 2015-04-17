@@ -9,7 +9,7 @@ ENV JENKINS_HOME /var/lib/jenkins
 VOLUME /var/lib/jenkins
 
 # Install Docker Compose
-RUN curl -L https://github.com/docker/compose/releases/download/1.1.0/docker-compose-`uname -s`-`uname -m` > /usr/local/bin/docker-compose
+RUN curl -L https://github.com/docker/compose/releases/download/1.2.0/docker-compose-`uname -s`-`uname -m` > /usr/local/bin/docker-compose
 RUN chmod +x /usr/local/bin/docker-compose
 
 ADD supervisord.conf /etc/supervisor/conf.d/supervisord.conf
