@@ -1,5 +1,8 @@
 FROM jpetazzo/dind
+
 MAINTAINER Decheng Zhang <killercentury@gmail.com>
+
+ENV DOCKER_COMPOSE_VERSION 1.3.3
 
 RUN wget -q -O - https://jenkins-ci.org/debian/jenkins-ci.org.key | apt-key add -
 RUN sh -c 'echo deb http://pkg.jenkins-ci.org/debian binary/ > /etc/apt/sources.list.d/jenkins.list'
@@ -9,7 +12,7 @@ ENV JENKINS_HOME /var/lib/jenkins
 VOLUME /var/lib/jenkins
 
 # Install Docker Compose
-RUN curl -L https://github.com/docker/compose/releases/download/1.3.2/docker-compose-`uname -s`-`uname -m` > /usr/local/bin/docker-compose
+RUN curl -L https://github.com/docker/compose/releases/download/${DOCKER_COMPOSE_VERSION}/docker-compose-`uname -s`-`uname -m` > /usr/local/bin/docker-compose
 RUN chmod +x /usr/local/bin/docker-compose
 
 ADD supervisord.conf /etc/supervisor/conf.d/supervisord.conf
