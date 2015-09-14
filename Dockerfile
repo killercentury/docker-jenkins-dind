@@ -11,7 +11,7 @@ RUN apt-get update -qq && apt-get install -qqy \
     iptables
 
 # Install Docker from Docker Inc. repositories.
-RUN curl -sSL https://get.docker.com/ubuntu/ | sh
+RUN curl -sSL https://get.docker.com/ | sh
 
 # Install the wrapper script from https://raw.githubusercontent.com/docker/docker/master/hack/dind.
 ADD ./dind /usr/local/bin/dind
