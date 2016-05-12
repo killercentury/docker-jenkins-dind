@@ -36,6 +36,9 @@ VOLUME /var/lib/jenkins
 RUN curl -L https://github.com/docker/compose/releases/download/${DOCKER_COMPOSE_VERSION}/docker-compose-`uname -s`-`uname -m` > /usr/local/bin/docker-compose
 RUN chmod +x /usr/local/bin/docker-compose
 
+# Install syslog-stdout utilities
+RUN easy_install syslog-stdout supervisor-stdout
+
 ADD supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 
 EXPOSE 8080
