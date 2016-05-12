@@ -1,0 +1,9 @@
+#!/bin/bash
+set -e
+
+if [ -n "${DOCKER_REGISTRY_CERT}" -a -e "${DOCKER_REGISTRY_CERT}" ]; then
+    cert_root=/etc/docker/certs.d/${DOCKER_REGISTRY_NAME}
+    mkdir -p ${cert_root}
+
+    cp ${DOCKER_REGISTRY_CERT} "${cert_root}/ca.crt"
+fi;
