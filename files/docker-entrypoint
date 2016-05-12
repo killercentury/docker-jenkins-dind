@@ -1,0 +1,6 @@
+#!/bin/bash
+
+# check to see if there are any registry certificates defined
+registry-certificate
+
+exec "$@"
